@@ -581,7 +581,7 @@ func (chain *BlockChain) SynBlocksFromPeers() {
 		return
 	}
 	//获取peers的最新高度.处理没有收到广播block的情况
-	if curheight+1 < peerMaxBlkHeight {
+	if curheight < peerMaxBlkHeight {
 		synlog.Info("SynBlocksFromPeers", "curheight", curheight, "LastCastBlkHeight", RcvLastCastBlkHeight, "peerMaxBlkHeight", peerMaxBlkHeight)
 		pids := chain.GetBestChainPids()
 		if pids != nil {
